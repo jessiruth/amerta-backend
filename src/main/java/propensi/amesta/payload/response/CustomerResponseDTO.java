@@ -1,25 +1,21 @@
 package propensi.amesta.payload.response;
 
-import java.util.UUID;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class ExtractJwtResponseDTO {
-
+@AllArgsConstructor
+public class CustomerResponseDTO {
     private UUID id;
-
-    private String username;
-
+    private String name;
+    private String phone;
+    private String handphone;
+    private String whatsapp;
     private String email;
-
+    private String address;
     private String role;
-
-    private String token;
-
-    private String nama;
 }
