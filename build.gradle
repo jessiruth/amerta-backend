@@ -20,6 +20,7 @@ sonar {
     property "sonar.projectKey", "amerta-backend"
 	property "sonar.projectName", "amerta-backend"
     property "sonar.host.url", "https://sonarqube.cs.ui.ac.id"
+	property "sonar.coverageReportPaths", "build/reports/tests/test/index.html"
   }
 }
 
@@ -41,6 +42,7 @@ dependencies {
 	implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.5'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	implementation 'com.lowagie:itext:2.1.7'
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
 	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
@@ -66,8 +68,8 @@ tasks.jacocoTestReport {
    }
    dependsOn(tasks.test) // tests are required to run before generating the report
    reports {
-       xml.required.set(false)
-       csv.required.set(false)
-       html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
+       xml.required.set(true)
+       csv.required.set(true)
+       html.required.set(true)
    }
 }

@@ -1,4 +1,6 @@
-package propensi.amesta.payload.response;
+package propensi.amesta.payload.response.Auth;
+
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,5 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class LoginJwtResponseDTO {
     private String token;
+    private String name;
     private String role;
+    private UUID id;
 }
