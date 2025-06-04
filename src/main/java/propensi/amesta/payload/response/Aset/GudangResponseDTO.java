@@ -17,6 +17,8 @@ public class GudangResponseDTO {
     private String nama;
     private String deskripsi;
     private Integer kapasitas;
+    private Integer totalStock;
+    private Integer sisaKapasitas;
     private KepalaGudangResponseDTO kepalaGudang;
     private AlamatGudangResponseDTO alamatGudang;
     private List<BarangResponseDTO> listBarang;

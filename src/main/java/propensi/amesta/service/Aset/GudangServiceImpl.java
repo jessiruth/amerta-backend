@@ -144,17 +144,23 @@ public class GudangServiceImpl implements GudangService {
         }
 
         List<BarangResponseDTO> listBarangDTO = new ArrayList<>();
+        int totalStock = 0;
         if (gudang.getListBarang() != null && !gudang.getListBarang().isEmpty()) {
             for (StockBarangPerGudang stockBarang : gudang.getListBarang()) {
                 BarangResponseDTO barangDTO = barangService.barangToBarangResponseDTO(stockBarang.getBarang());
                 listBarangDTO.add(barangDTO);
+                totalStock += stockBarang.getStock();
             }
         }
+        
+        int sisaKapasitas = gudang.getKapasitas() - totalStock;
         
         return new GudangResponseDTO(
             gudang.getNama(),
             gudang.getDeskripsi(),
             gudang.getKapasitas(),
+            totalStock,
+            sisaKapasitas,
             kepalaGudangDTO,
             alamatGudangDTO,
             listBarangDTO,
